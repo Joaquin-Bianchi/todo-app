@@ -20,12 +20,24 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
+}
+main {
+  text-align: center;
+  margin-top: 50px;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+.lista-tareas {
+  display: flex;
+  gap: 30px;
+  font-size: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+.checkbox-imte {
+  background-color: aqua;
+  font-size: 30px;
+  color: red;
+}
+.ctn-item {
+  display: flex;
 }
