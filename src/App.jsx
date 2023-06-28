@@ -1,47 +1,31 @@
-import { useState } from "react";
-import { Task } from "./components/task";
+import { useEffect, useState } from "react";
+import TaskList from "./components/TaskList.jsx";
+import TaskForm from "./components/TaskForm.jsx";
+import { tasksItems as data } from "./components/tasksItems";
 
 function App() {
-  // const [persons, setPersons] = useState([props.person]);
-  const [newTitleTask, setNewTitleTask] = useState("");
-  const [tasksItems, setNewtasksItems] = useState([
-    { name: "Primer Tarea", done: true },
-  ]);
+  const [tasksItems, setNewtasksItems] = useState([]);
+  useEffect(() => {
+    setNewtasksItems(data);
+  }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
+  function createTask(newTask) {
     const isNameDuplicate = tasksItems.some(
-      (task) => task.name.toLowerCase() === newTitleTask.toLowerCase()
+      (task) => task.name.toLowerCase() === newTask.name.toLowerCase()
     );
 
     if (isNameDuplicate) {
-      alert(` ${newTitleTask} is already added`);
-    } else {
-      const newTask = { name: newTitleTask };
-      setNewtasksItems([...tasksItems, newTask]);
-    }
-
-    setNewTitleTask("");
-  };
-  const handleNameTask = (event) => {
-    setNewTitleTask(event.target.value);
-  };
+      alert(`${newTask.name} is already added`);
+    } else setNewtasksItems([...tasksItems, newTask]);
+  }
+  function DeleteTask(taskName) {
+    setNewtasksItems(tasksItems.filter((task) => task.name !== taskName));
+  }
   return (
     <main>
       <h1>Tareas</h1>
-      <form onSubmit={handleSubmit} className="lista-tareas">
-        <input
-          onChange={handleNameTask}
-          value={newTitleTask}
-          type="text"
-          placeholder="Crear Una Nueva tarea"
-        />
-        <button type="submit">Add</button>
-        {tasksItems.map((task) => (
-          <Task title={task.name} key={task.name}></Task>
-        ))}
-      </form>
+      <TaskForm createTask={createTask} />
+      <TaskList tasksItems={tasksItems} DeleteTask={DeleteTask} />
     </main>
   );
 }
