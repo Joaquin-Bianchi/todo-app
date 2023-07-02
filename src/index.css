@@ -1,4 +1,4 @@
-/* @tailwind base; */
+ @tailwind base; 
 @tailwind components;
 @tailwind utilities;
 :root {
@@ -17,7 +17,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
+} 
 
 body {
   margin: 0;
@@ -43,4 +43,4 @@ main {
 }
 .ctn-item {
   display: flex;
-}
+} 

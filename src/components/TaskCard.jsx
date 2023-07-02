@@ -1,26 +1,30 @@
-import { useState } from "react";
-import React from "react";
-import { tasksItems } from "./tasksItems";
+import { useState, useContext } from "react";
 
-function TaskCard({ title, DeleteTask }) {
+import { TaskContext } from "../context/TaskContext";
+
+function TaskCard({ title }) {
   const [isChecked, setIsChecked] = useState(false);
-
+  const { DeleteTask } = useContext(TaskContext);
   const handleOnChange = () => {
     setIsChecked(!isChecked);
 
-    // Si Is checked = false el clase name tiene que ser bg-roja y sino bg-verde
+    // Si Is checked = false el clase name tiene que ser bg-roja y sino bg-verde {isChecked ? "bg-green-700 text-white" : "bg-gray-600"}
   };
   return (
-    <div className={isChecked ? "bg-green-700 text-white" : "bg-gray-600"}>
-      <input
-        onChange={handleOnChange}
-        checked={isChecked}
-        className=""
-        type="checkbox"
-      ></input>
-      <label>{title}</label>
-      <button onClick={() => DeleteTask(title)}>Eliminar</button>
-    </div>
+    <>
+      <div className="">
+        <input
+          onChange={handleOnChange}
+          checked={isChecked}
+          className=""
+          type="checkbox"
+        ></input>
+        <label>{title}</label>
+
+        <button onClick={() => DeleteTask(title)}>Eliminar</button>
+      </div>
+      <hr className="m-1"></hr>
+    </>
   );
 }
 

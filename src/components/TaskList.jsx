@@ -1,7 +1,8 @@
-import React from "react";
+import { useContext } from "react";
 import TaskCard from "./TaskCard";
-
-const TaskList = ({ tasksItems, DeleteTask }) => {
+import { TaskContext } from "../context/TaskContext";
+const TaskList = () => {
+  const { tasksItems, DeleteTask } = useContext(TaskContext);
   return (
     <>
       {tasksItems.map((task) => (
