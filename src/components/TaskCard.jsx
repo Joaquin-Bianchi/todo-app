@@ -1,49 +1,40 @@
 import { useState, useContext } from "react";
-
 import { TaskContext } from "../context/TaskContext";
-
+import "./Styles/Checkbox.css";
+import { FaTrash } from "react-icons/fa";
 function TaskCard({ title }) {
   const [isChecked, setIsChecked] = useState(false);
   const { DeleteTask } = useContext(TaskContext);
   const handleOnChange = () => {
     setIsChecked(!isChecked);
 
-    // Si Is checked = false el clase name tiene que ser bg-roja y sino bg-verde {isChecked ? "bg-green-700 text-white" : "bg-gray-600"}
+    // Si Is checked = false el clase name tiene que ser diferente
   };
   return (
     <>
-      <div className="">
-        <input
+      <li className={`${"task-item"} ${isChecked ? "task-item-complete" : ""}`}>
+        {/* <input 
           onChange={handleOnChange}
           checked={isChecked}
-          className=""
+          color="success"
           type="checkbox"
-        ></input>
-        <label>{title}</label>
+        /> */}
+        <label className="container">
+          <input
+            type="checkbox"
+            onChange={handleOnChange}
+            checked={isChecked}
+          />
+          <div className="checkmark"></div>
+        </label>
+        <p className={isChecked ? "title-task-complete" : ""}>{title}</p>
 
-        <button onClick={() => DeleteTask(title)}>Eliminar</button>
-      </div>
-      <hr className="m-1"></hr>
+        <button onClick={() => DeleteTask(title)} className="delete-task-btn">
+          <FaTrash size={"20px"}></FaTrash>
+        </button>
+      </li>
     </>
   );
 }
 
 export default TaskCard;
-{
-  /* {tasksItems.map((task) => (
-      <Task title={task.name} key={task.name} isChecked={task.done}></Task>
-    ))} */
-}
-
-// Todavia faltan los estilos con condiciones  y las clases
-
-// RFCE
-// import React from 'react'
-
-// function task() {
-//   return (
-//     <div>task</div>
-//   )
-// }
-
-// export default task

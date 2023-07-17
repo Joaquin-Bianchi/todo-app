@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { useState } from "react";
 import { TaskContext } from "../context/TaskContext";
+import { IoIosAddCircle } from "react-icons/io";
 
-function TaskForm({}) {
+function TaskForm() {
   const [newTitleTask, setNewTitleTask] = useState("");
   const { createTask } = useContext(TaskContext);
 
@@ -18,14 +19,19 @@ function TaskForm({}) {
     setNewTitleTask(event.target.value);
   };
   return (
-    <form onSubmit={handleSubmit} className="lista-tareas">
+    <form onSubmit={handleSubmit} className="task-form">
       <input
+        className="input-area"
         onChange={handleNameTask}
         value={newTitleTask}
-        type="text"
         placeholder="Crear Una Nueva tarea"
+        required
       />
-      <button type="submit">Add</button>
+      <div>
+        <button className="create-task-btn">
+          <IoIosAddCircle size={"30px"}></IoIosAddCircle>
+        </button>
+      </div>
     </form>
   );
 }

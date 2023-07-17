@@ -1,46 +1,140 @@
- @tailwind base; 
-@tailwind components;
-@tailwind utilities;
-:root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-} 
-
-body {
+* {
+  font-family: "Poppins", sans-serif;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* #1a1a40; */
+body {
+  font-size: 35px;
+  background-color: #bae8e8;
   display: flex;
   justify-content: center;
+  margin-top: 60px;
 }
 main {
-  text-align: center;
-  margin-top: 50px;
+  background-color: #fffffe;
+  width: 700px;
+  min-height: 100vh;
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+  gap: 30px;
+
+  box-shadow: 1px 1px 5px 0px #0000006b;
+  border: 2px solid #323232;
+  box-shadow: 4px 4px #323232;
+  border-radius: 5px;
 }
 
-.lista-tareas {
+.title-ctn {
   display: flex;
-  gap: 30px;
-  font-size: 30px;
-  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.title-ctn h1 {
+  color: #2d334a;
   align-items: center;
-}
-.checkbox-imte {
-  background-color: aqua;
-  font-size: 30px;
-  color: red;
-}
-.ctn-item {
+  justify-content: center;
   display: flex;
-} 
+}
+
+.task-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+.input-area {
+  width: 80%;
+  outline: none;
+  background: #a2e8ec;
+  padding: 15px 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: medium;
+  color: #2d334a;
+  border: 2px solid #323232;
+  box-shadow: 4px 4px #323232;
+  border-radius: 5px;
+  border-right: none;
+}
+.input-area::placeholder {
+  color: #00000081;
+}
+
+.create-task-btn {
+  background-color: #ffd803;
+  cursor: pointer;
+  color: #2d334a;
+  outline: none;
+  border: none;
+  border-radius: 20%;
+  padding: 9px 12px;
+  border: 2px solid #323232;
+  box-shadow: 4px 4px #323232;
+  border-radius: 5px;
+}
+.create-task-btn :hover {
+  color: rgb(118, 118, 118);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  color: #272343;
+  background-color: #bae8e8;
+  font-size: 29px;
+  border-radius: 5px;
+  padding: 7px;
+  margin: 17px 2px;
+  gap: 0px;
+  box-shadow: 1px 1px 5px 0px #0000006b;
+  border: 2px solid #323232;
+  box-shadow: 4px 1px #323232;
+  border-radius: 5px;
+}
+.task-item label {
+  margin-left: 8px;
+}
+.task-item p {
+  margin-left: 15px;
+}
+
+.task-item-complete {
+  background-color: #ccdddd;
+}
+.title-task-complete {
+  text-decoration: line-through #ffd803;
+  color: #6e748f;
+}
+
+.delete-task-btn {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  margin-top: 5px;
+}
+.delete-task-btn :hover {
+  color: #ff2115;
+  transition: all 0.2s;
+}
+
+.footer-ctn {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 10px;
+  justify-content: center;
+}
+.footer-ctn a {
+  color: #000000;
+}
+.footer-ctn a :hover {
+  color: #ffd803;
+  transition: all 0.2s;
+}
+.footer-ctn a :visited {
+  color: #000000;
+}
