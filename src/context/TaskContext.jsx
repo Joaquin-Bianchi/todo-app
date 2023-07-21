@@ -5,9 +5,11 @@ export const TaskContext = createContext();
 
 export function TaskContextProvider(props) {
   const [tasksItems, setNewtasksItems] = useState([]);
+
   useEffect(() => {
     setNewtasksItems(data);
   }, []);
+
   function createTask(newTask) {
     const isNameDuplicate = tasksItems.some(
       (task) => task.name.toLowerCase() === newTask.name.toLowerCase()
@@ -20,6 +22,7 @@ export function TaskContextProvider(props) {
   function DeleteTask(taskName) {
     setNewtasksItems(tasksItems.filter((task) => task.name !== taskName));
   }
+  console.log(tasksItems);
   return (
     <TaskContext.Provider value={{ tasksItems, createTask, DeleteTask }}>
       {props.children}

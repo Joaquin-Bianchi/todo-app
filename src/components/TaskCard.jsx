@@ -2,9 +2,11 @@ import { useState, useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
 import "./Styles/Checkbox.css";
 import { FaTrash } from "react-icons/fa";
+
 function TaskCard({ title }) {
   const [isChecked, setIsChecked] = useState(false);
   const { DeleteTask } = useContext(TaskContext);
+  const { tasksItems } = useContext(TaskContext);
   const handleOnChange = () => {
     setIsChecked(!isChecked);
 

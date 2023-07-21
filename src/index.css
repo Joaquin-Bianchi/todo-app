@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 /* #1a1a40; */
+
 body {
   font-size: 35px;
   background-color: #bae8e8;
@@ -14,6 +15,7 @@ body {
   justify-content: center;
   margin-top: 60px;
 }
+/* media query */
 main {
   background-color: #fffffe;
   width: 700px;
@@ -28,6 +30,21 @@ main {
   box-shadow: 4px 4px #323232;
   border-radius: 5px;
 }
+@media only screen and (max-width: 768px) {
+  main {
+    /* background-color: #ff2115; */
+    width: 60vh;
+  }
+}
+@media only screen and (max-width: 568px) {
+  main {
+    /* background-color: #ff2115; */
+    width: 40vh;
+  }
+  .task-item p {
+    font-size: 25px;
+  }
+}
 
 .title-ctn {
   display: flex;
@@ -39,6 +56,7 @@ main {
   align-items: center;
   justify-content: center;
   display: flex;
+  font-weight: 700;
 }
 
 .task-form {
@@ -80,10 +98,20 @@ main {
 .create-task-btn :hover {
   color: rgb(118, 118, 118);
 }
-
+.no-task-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.ilustracion-task {
+  width: 70%;
+  color: #ccdddd;
+}
 .task-item {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   color: #272343;
   background-color: #bae8e8;
   font-size: 29px;
